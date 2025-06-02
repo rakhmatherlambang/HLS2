@@ -1,0 +1,23 @@
+                                         precision    recall  f1-score   support
+
+          Air Bersih dan Sanitasi Layak       0.77      0.56      0.65        79
+               Berkurangnya Kesenjangan       0.50      0.27      0.35        44
+                        Ekosistem Darat       0.63      0.71      0.67       186
+                         Ekosistem Laut       0.67      0.49      0.57        69
+           Energi Bersih dan Terjangkau       0.74      0.61      0.67        79
+    Industri, Inovasi dan Infrastruktur       0.38      0.15      0.22        52
+        Kemitraan untuk Mencapai Tujuan       0.55      0.15      0.24        39
+            Kesehatan dan Kesejahteraan       0.70      0.65      0.68       110
+                      Kesetaraan Gender       0.89      0.50      0.64        32
+Konsumsi dan Produksi Bertanggung Jawab       0.69      0.66      0.68       123
+      Kota dan Permukiman Berkelanjutan       0.61      0.76      0.68       166
+Pekerjaan Layak dan Pertumbuhan Ekonomi       0.51      0.37      0.43        54
+             Penanganan Perubahan Iklim       0.54      0.38      0.45        52
+                 Pendidikan Berkualitas       0.66      0.94      0.78       359
+   Perdamaian, Keadilan dan Kelembagaan       0.71      0.55      0.62        40
+                        Tanpa Kelaparan       0.29      0.12      0.17        17
+                       Tanpa Kemiskinan       0.00      0.00      0.00         7
+
+                               accuracy                           0.65      1508
+                              macro avg       0.58      0.46      0.50      1508
+                           weighted avg       0.64      0.65      0.63      1508

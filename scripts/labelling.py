@@ -7,7 +7,7 @@ device = 'cuda' if torch.cuda.is_available() else 'cpu'
 model = SentenceTransformer('paraphrase-multilingual-MiniLM-L12-v2', device=device)
 
 # Load data
-df = pd.read_csv("preprocessed_sinta_no_nltk.csv")
+df = pd.read_csv("data/interim/preprocessed_sinta_no_nltk.csv")
 
 # Daftar kategori SDGs
 sdg_labels = {

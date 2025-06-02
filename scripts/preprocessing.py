@@ -2,30 +2,41 @@ import pandas as pd
 import re
 
 # Load data
-df = pd.read_csv("sinta_unila.csv")
+df = pd.read_csv("data/raw/sinta_scraped_data.csv")
 
-# Ganti kolom target jika berbeda
+# Tentukan kolom teks
 text_column = 'Title' if 'Title' in df.columns else df.columns[0]
 
-# Stopword sederhana (tanpa NLTK)
-stopwords = set([
+# Hapus duplikat awal berdasarkan kolom Title
+df = df.drop_duplicates(subset=text_column)
+
+# Stopword list sederhana
+stopwords = {
     "yang", "dan", "atau", "di", "ke", "dari", "untuk", "dengan", "pada",
     "sebagai", "adalah", "itu", "ini", "dalam", "oleh", "karena", "juga",
     "lebih", "agar", "akan", "tersebut", "telah", "menjadi", "bahwa", "maka"
-])
+}
 
 # Fungsi preprocessing
+
+
 def preprocess(text):
-    if pd.isna(text): return ""
-    text = text.lower()  # case folding
-    text = re.sub(r'[^\w\s]', '', text)  # punctuation removal
+    if pd.isna(text):
+        return ""
+    text = text.lower()  # lowercase
+    text = re.sub(r'[^\w\s]', '', text)  # hapus tanda baca
     tokens = text.split()
-    tokens = [word for word in tokens if word not in stopwords]  # stopword removal
+    # hapus stopword
+    tokens = [word for word in tokens if word not in stopwords]
     return ' '.join(tokens)
 
-# Proses semua
+
+# Terapkan preprocessing
 df['processed_text'] = df[text_column].apply(preprocess)
 
-# Simpan
+# Hapus duplikat lagi setelah preprocessing
+df = df.drop_duplicates(subset='processed_text')
+
+# Simpan hasil
 df.to_csv("preprocessed_sinta_no_nltk.csv", index=False)
-print("Preprocessing selesai dan disimpan ke preprocessed_sinta_no_nltk.csv")
+print("✅ Preprocessing selesai. Disimpan ke preprocessed_sinta_no_nltk.csv")
