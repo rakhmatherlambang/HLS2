@@ -14,3 +14,6 @@ seaborn>=0.11.2
 jupyter
 joblib
 selenium
+nltk
+googletrans==4.0.0-rc1
+Sastrawi==1.0.1
